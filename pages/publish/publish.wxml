@@ -14,7 +14,7 @@
     <view class="publish-section-title">基本信息</view>
     <view class="publish-form-item">
       <text class="publish-label">菜谱名称</text>
-      <input class="publish-input" placeholder="请输入菜谱名称" value="{{recipeName}}" bindinput="onNameInput" />
+      <input class="publish-input" placeholder="请输入菜谱名称" value="{{recipeName}}" bindinput="onNameInput" placeholder-style="color:#999" confirm-type="done" />
     </view>
     <view class="publish-form-item">
       <text class="publish-label">菜谱分类</text>
@@ -34,7 +34,7 @@
     </view>
     <view class="publish-form-item">
       <text class="publish-label">烹饪时间</text>
-      <input class="publish-input" placeholder="如：30分钟" value="{{cookTime}}" bindinput="onTimeInput" />
+      <input class="publish-input" placeholder="如：30分钟" value="{{cookTime}}" bindinput="onTimeInput" placeholder-style="color:#999" confirm-type="done" />
     </view>
     <view class="publish-form-item">
       <text class="publish-label">口味</text>
@@ -51,8 +51,8 @@
     <view class="publish-section-title">食材清单</view>
     <view class="publish-ingredient-list">
       <view class="publish-ingredient-item" wx:for="{{ingredients}}" wx:key="index">
-        <input class="publish-ingredient-name" placeholder="食材名称" value="{{item.name}}" bindinput="onIngredientNameInput" data-index="{{index}}" />
-        <input class="publish-ingredient-amount" placeholder="用量" value="{{item.amount}}" bindinput="onIngredientAmountInput" data-index="{{index}}" />
+        <input class="publish-ingredient-name" placeholder="食材名称" value="{{item.name}}" bindinput="onIngredientNameInput" data-index="{{index}}" placeholder-style="color:#999" confirm-type="done" />
+        <input class="publish-ingredient-amount" placeholder="用量" value="{{item.amount}}" bindinput="onIngredientAmountInput" data-index="{{index}}" placeholder-style="color:#999" confirm-type="done" />
         <icon class="publish-delete-icon" type="cancel" size="16" bindtap="deleteIngredient" data-index="{{index}}" />
       </view>
     </view>
@@ -70,7 +70,7 @@
             <icon type="camera" size="20" color="#ccc" />
           </view>
         </view>
-        <textarea class="publish-step-desc" placeholder="描述这一步的做法..." value="{{item.description}}" bindinput="onStepDescInput" data-index="{{index}}" />
+        <textarea class="publish-step-desc" placeholder="描述这一步的做法..." value="{{item.description}}" bindinput="onStepDescInput" data-index="{{index}}" placeholder-style="color:#999" auto-height />
         <icon class="publish-delete-step" type="cancel" size="16" bindtap="deleteStep" data-index="{{index}}" />
       </view>
     </view>
@@ -79,7 +79,7 @@
 
   <view class="publish-section">
     <view class="publish-section-title">烹饪小贴士</view>
-    <textarea class="publish-textarea" placeholder="分享你的烹饪技巧..." value="{{tips}}" bindinput="onTipsInput" />
+    <textarea class="publish-textarea" placeholder="分享你的烹饪技巧..." value="{{tips}}" bindinput="onTipsInput" placeholder-style="color:#999" auto-height />
   </view>
 
   <button class="publish-submit-btn" bindtap="publishRecipe">发布菜谱</button>
