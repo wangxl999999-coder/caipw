@@ -1,0 +1,107 @@
+<view class="container">
+  <view class="tools-grid">
+    <view class="tool-card" bindtap="goToConverter">
+      <view class="tool-icon">⚖️</view>
+      <text class="tool-name">食材换算</text>
+      <text class="tool-desc">克、勺、毫升转换</text>
+    </view>
+    <view class="tool-card" bindtap="goToTimer">
+      <view class="tool-icon">⏱️</view>
+      <text class="tool-name">烹饪计时器</text>
+      <text class="tool-desc">精准计时提醒</text>
+    </view>
+    <view class="tool-card" bindtap="goToShoppingList">
+      <view class="tool-icon">🛒</view>
+      <text class="tool-name">买菜清单</text>
+      <text class="tool-desc">一键导出食材</text>
+    </view>
+    <view class="tool-card" bindtap="goToBabyFood">
+      <view class="tool-icon">👶</view>
+      <text class="tool-name">宝宝辅食</text>
+      <text class="tool-desc">按月龄分类</text>
+    </view>
+  </view>
+
+  <view class="converter-section" wx:if="{{activeTool === 'converter'}}">
+    <view class="section-title">食材换算器</view>
+    <view class="converter-card">
+      <view class="input-group">
+        <text class="label">输入数值</text>
+        <input class="input" type="number" value="{{inputValue}}" bindinput="onInputValue" />
+      </view>
+      <view class="unit-select">
+        <view class="unit-option {{fromUnit === 'g' ? 'active' : ''}}" bindtap="selectFromUnit" data-unit="g">克 (g)</view>
+        <view class="unit-option {{fromUnit === 'spoon' ? 'active' : ''}}" bindtap="selectFromUnit" data-unit="spoon">勺</view>
+        <view class="unit-option {{fromUnit === 'ml' ? 'active' : ''}}" bindtap="selectFromUnit" data-unit="ml">毫升 (ml)</view>
+      </view>
+      <view class="converter-arrow">↓ 转换为 ↓</view>
+      <view class="unit-select">
+        <view class="unit-option {{toUnit === 'g' ? 'active' : ''}}" bindtap="selectToUnit" data-unit="g">克 (g)</view>
+        <view class="unit-option {{toUnit === 'spoon' ? 'active' : ''}}" bindtap="selectToUnit" data-unit="spoon">勺</view>
+        <view class="unit-option {{toUnit === 'ml' ? 'active' : ''}}" bindtap="selectToUnit" data-unit="ml">毫升 (ml)</view>
+      </view>
+      <view class="result-box">
+        <text class="result-value">{{resultValue}}</text>
+        <text class="result-unit">{{toUnit === 'g' ? '克' : toUnit === 'spoon' ? '勺' : '毫升'}}</text>
+      </view>
+      <view class="convert-tips">* 1勺≈15克，1毫升水≈1克</view>
+    </view>
+  </view>
+
+  <view class="timer-section" wx:if="{{activeTool === 'timer'}}">
+    <view class="section-title">烹饪计时器</view>
+    <view class="timer-card">
+      <view class="timer-display">{{timerDisplay}}</view>
+      <view class="timer-controls">
+        <button class="timer-btn {{isRunning ? 'pause' : 'start'}}" bindtap="toggleTimer">
+          {{isRunning ? '暂停' : '开始'}}
+        </button>
+        <button class="timer-btn reset" bindtap="resetTimer">重置</button>
+      </view>
+      <view class="preset-times">
+        <text class="preset-title">常用时间：</text>
+        <view class="preset-list">
+          <text class="preset-item" bindtap="setPresetTime" data-time="300">5分钟</text>
+          <text class="preset-item" bindtap="setPresetTime" data-time="600">10分钟</text>
+          <text class="preset-item" bindtap="setPresetTime" data-time="1800">30分钟</text>
+          <text class="preset-item" bindtap="setPresetTime" data-time="3600">1小时</text>
+        </view>
+      </view>
+      <view class="custom-time">
+        <text class="preset-title">自定义时间：</text>
+        <view class="time-inputs">
+          <input class="time-input" type="number" placeholder="分" value="{{customMinute}}" bindinput="onMinuteInput" />
+          <text class="time-separator">:</text>
+          <input class="time-input" type="number" placeholder="秒" value="{{customSecond}}" bindinput="onSecondInput" />
+        </view>
+        <button class="set-time-btn" bindtap="setCustomTime">设置时间</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="shopping-section" wx:if="{{activeTool === 'shopping'}}">
+    <view class="section-title">
+      <text>买菜清单</text>
+      <text class="clear-all" bindtap="clearShoppingList">清空</text>
+    </view>
+    <view class="add-item-row">
+      <input class="add-input" placeholder="添加食材" bindconfirm="addShoppingItem" />
+      <button class="add-btn" bindtap="addShoppingItem">添加</button>
+    </view>
+    <view class="shopping-list">
+      <view class="shopping-item {{item.checked ? 'checked' : ''}}" wx:for="{{shoppingList}}" wx:key="name">
+        <view class="item-checkbox" bindtap="toggleCheckItem" data-index="{{index}}">
+          <icon type="{{item.checked ? 'success' : 'circle'}}" size="20" />
+        </view>
+        <text class="item-name">{{item.name}}</text>
+        <icon class="item-delete" type="cancel" size="16" bindtap="deleteShoppingItem" data-index="{{index}}" />
+      </view>
+    </view>
+    <button class="export-btn" wx:if="{{shoppingList.length > 0}}" bindtap="exportShoppingList">
+      导出清单
+    </button>
+    <view class="empty-shopping" wx:if="{{shoppingList.length === 0}}">
+      <text>暂无购物清单</text>
+    </view>
+  </view>
+</view>

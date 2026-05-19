@@ -1,0 +1,87 @@
+<scroll-view class="container" scroll-y="true">
+  <view class="form-section">
+    <view class="section-title">菜谱封面</view>
+    <view class="cover-upload" bindtap="uploadCover">
+      <image wx:if="{{coverImage}}" class="cover-image" src="{{coverImage}}" mode="aspectFill" />
+      <view wx:else class="cover-placeholder">
+        <icon type="camera" size="40" color="#ccc" />
+        <text>点击上传封面</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">基本信息</view>
+    <view class="form-item">
+      <text class="label">菜谱名称</text>
+      <input class="input" placeholder="请输入菜谱名称" value="{{recipeName}}" bindinput="onNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">菜谱分类</text>
+      <picker bindchange="onCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
+        <view class="picker">
+          {{categories[categoryIndex] || '请选择分类'}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">难度</text>
+      <view class="tag-group">
+        <text class="tag {{difficulty === '简单' ? 'active' : ''}}" bindtap="selectDifficulty" data-value="简单">简单</text>
+        <text class="tag {{difficulty === '中等' ? 'active' : ''}}" bindtap="selectDifficulty" data-value="中等">中等</text>
+        <text class="tag {{difficulty === '困难' ? 'active' : ''}}" bindtap="selectDifficulty" data-value="困难">困难</text>
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="label">烹饪时间</text>
+      <input class="input" placeholder="如：30分钟" value="{{cookTime}}" bindinput="onTimeInput" />
+    </view>
+    <view class="form-item">
+      <text class="label">口味</text>
+      <view class="tag-group">
+        <text class="tag {{taste === '咸鲜' ? 'active' : ''}}" bindtap="selectTaste" data-value="咸鲜">咸鲜</text>
+        <text class="tag {{taste === '麻辣' ? 'active' : ''}}" bindtap="selectTaste" data-value="麻辣">麻辣</text>
+        <text class="tag {{taste === '酸甜' ? 'active' : ''}}" bindtap="selectTaste" data-value="酸甜">酸甜</text>
+        <text class="tag {{taste === '清淡' ? 'active' : ''}}" bindtap="selectTaste" data-value="清淡">清淡</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">食材清单</view>
+    <view class="ingredient-list">
+      <view class="ingredient-item" wx:for="{{ingredients}}" wx:key="index">
+        <input class="ingredient-name" placeholder="食材名称" value="{{item.name}}" bindinput="onIngredientNameInput" data-index="{{index}}" />
+        <input class="ingredient-amount" placeholder="用量" value="{{item.amount}}" bindinput="onIngredientAmountInput" data-index="{{index}}" />
+        <icon class="delete-icon" type="cancel" size="16" bindtap="deleteIngredient" data-index="{{index}}" />
+      </view>
+    </view>
+    <button class="add-btn" bindtap="addIngredient">+ 添加食材</button>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">烹饪步骤</view>
+    <view class="step-list">
+      <view class="step-item" wx:for="{{steps}}" wx:key="index">
+        <view class="step-number">第{{index + 1}}步</view>
+        <view class="step-image-upload" bindtap="uploadStepImage" data-index="{{index}}">
+          <image wx:if="{{item.image}}" class="step-image" src="{{item.image}}" mode="aspectFill" />
+          <view wx:else class="step-image-placeholder">
+            <icon type="camera" size="20" color="#ccc" />
+          </view>
+        </view>
+        <textarea class="step-desc" placeholder="描述这一步的做法..." value="{{item.description}}" bindinput="onStepDescInput" data-index="{{index}}" />
+        <icon class="delete-step" type="cancel" size="16" bindtap="deleteStep" data-index="{{index}}" />
+      </view>
+    </view>
+    <button class="add-btn" bindtap="addStep">+ 添加步骤</button>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">烹饪小贴士</view>
+    <textarea class="textarea" placeholder="分享你的烹饪技巧..." value="{{tips}}" bindinput="onTipsInput" />
+  </view>
+
+  <button class="publish-btn" bindtap="publishRecipe">发布菜谱</button>
+  <view class="bottom-spacing"></view>
+</scroll-view>

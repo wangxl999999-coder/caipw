@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="category-tabs">
+    <view class="tab {{activeCategory === 'all' ? 'active' : ''}}" bindtap="switchCategory" data-category="all">
+      全部
+    </view>
+    <view class="tab {{activeCategory === '家常菜' ? 'active' : ''}}" bindtap="switchCategory" data-category="家常菜">
+      家常菜
+    </view>
+    <view class="tab {{activeCategory === '川菜' ? 'active' : ''}}" bindtap="switchCategory" data-category="川菜">
+      川菜
+    </view>
+    <view class="tab {{activeCategory === '甜品' ? 'active' : ''}}" bindtap="switchCategory" data-category="甜品">
+      甜品
+    </view>
+  </view>
+
+  <scroll-view class="favorites-list" scroll-y="true">
+    <view class="favorite-item" wx:for="{{filteredFavorites}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="favorite-image" src="{{item.image}}" mode="aspectFill" />
+      <view class="favorite-content">
+        <text class="favorite-title">{{item.title}}</text>
+        <view class="favorite-meta">
+          <text class="tag">{{item.category}}</text>
+          <text class="tag">{{item.difficulty}}</text>
+        </view>
+        <text class="favorite-time">⏱️ {{item.time}}</text>
+      </view>
+      <icon class="delete-icon" type="cancel" size="20" catchtap="removeFavorite" data-id="{{item.id}}" />
+    </view>
+
+    <view class="empty-state" wx:if="{{filteredFavorites.length === 0}}">
+      <text class="empty-icon">📑</text>
+      <text class="empty-text">暂无收藏菜谱</text>
+      <text class="empty-hint">快去发现美食吧</text>
+      <button class="go-explore-btn" bindtap="goExplore">去逛逛</button>
+    </view>
+  </scroll-view>
+</view>

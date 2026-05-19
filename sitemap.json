@@ -1,0 +1,70 @@
+{
+  "desc": "美食菜谱小程序站点地图配置",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "pages/index/index",
+      "priority": 1.0
+    },
+    {
+      "action": "allow",
+      "page": "pages/category/category",
+      "priority": 0.9
+    },
+    {
+      "action": "allow",
+      "page": "pages/recipe-detail/recipe-detail",
+      "priority": 0.9
+    },
+    {
+      "action": "allow",
+      "page": "pages/search/search",
+      "priority": 0.8
+    },
+    {
+      "action": "allow",
+      "page": "pages/daily-plan/daily-plan",
+      "priority": 0.8
+    },
+    {
+      "action": "allow",
+      "page": "pages/tools/tools",
+      "priority": 0.7
+    },
+    {
+      "action": "allow",
+      "page": "pages/profile/profile",
+      "priority": 0.7
+    },
+    {
+      "action": "allow",
+      "page": "pages/ranking/ranking",
+      "priority": 0.7
+    },
+    {
+      "action": "allow",
+      "page": "pages/baby-food/baby-food",
+      "priority": 0.7
+    },
+    {
+      "action": "allow",
+      "page": "pages/favorites/favorites",
+      "priority": 0.6
+    },
+    {
+      "action": "allow",
+      "page": "pages/comment/comment",
+      "priority": 0.6
+    },
+    {
+      "action": "allow",
+      "page": "pages/publish/publish",
+      "priority": 0.6
+    },
+    {
+      "action": "allow",
+      "page": "pages/shopping-list/shopping-list",
+      "priority": 0.6
+    }
+  ]
+}

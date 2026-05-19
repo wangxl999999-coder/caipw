@@ -1,0 +1,139 @@
+.container {
+  padding: 20rpx;
+}
+
+.date-header {
+  text-align: center;
+  padding: 30rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.date-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.date-subtitle {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.meal-section {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.meal-icon {
+  font-size: 40rpx;
+  margin-right: 15rpx;
+}
+
+.meal-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.meal-recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.meal-recipe {
+  display: flex;
+  align-items: center;
+  padding: 15rpx;
+  background: #f9f9f9;
+  border-radius: 12rpx;
+}
+
+.recipe-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.recipe-info {
+  flex: 1;
+}
+
+.recipe-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.recipe-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.nutrition-summary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  color: #fff;
+}
+
+.nutrition-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30rpx;
+}
+
+.nutrition-item {
+  text-align: center;
+}
+
+.nutrition-value {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.nutrition-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.save-plan-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border: none;
+  margin-bottom: 30rpx;
+}
+
+.bottom-spacing {
+  height: 40rpx;
+}

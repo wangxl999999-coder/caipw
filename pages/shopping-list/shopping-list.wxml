@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="header">
+    <text class="title">购物清单</text>
+    <text class="clear-btn" bindtap="clearAll">清空</text>
+  </view>
+
+  <view class="add-section">
+    <input class="add-input" placeholder="添加食材..." value="{{newItem}}" bindconfirm="addItem" bindinput="onInput" />
+    <button class="add-btn" bindtap="addItem">添加</button>
+  </view>
+
+  <view class="list-section">
+    <view class="item {{item.checked ? 'checked' : ''}}" wx:for="{{shoppingList}}" wx:key="name">
+      <view class="checkbox" bindtap="toggleCheck" data-index="{{index}}">
+        <icon type="{{item.checked ? 'success' : 'circle'}}" size="20" color="{{item.checked ? '#ff6b35' : '#ccc'}}" />
+      </view>
+      <text class="item-name">{{item.name}}</text>
+      <icon class="delete-btn" type="cancel" size="16" bindtap="deleteItem" data-index="{{index}}" />
+    </view>
+
+    <view class="empty-state" wx:if="{{shoppingList.length === 0}}">
+      <text class="empty-icon">🛒</text>
+      <text class="empty-text">购物清单是空的</text>
+      <text class="empty-desc">快去添加需要购买的食材吧</text>
+    </view>
+  </view>
+
+  <view class="footer" wx:if="{{shoppingList.length > 0}}">
+    <text class="stats">共{{shoppingList.length}}项，已选{{checkedCount}}项</text>
+    <button class="export-btn" bindtap="exportList">导出清单</button>
+  </view>
+</view>

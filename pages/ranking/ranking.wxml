@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{activeTab === 'recipe' ? 'active' : ''}}" bindtap="switchTab" data-tab="recipe">
+      热门菜谱
+    </view>
+    <view class="tab {{activeTab === 'author' ? 'active' : ''}}" bindtap="switchTab" data-tab="author">
+      人气作者
+    </view>
+  </view>
+
+  <view class="recipe-ranking" wx:if="{{activeTab === 'recipe'}}">
+    <view class="top-three">
+      <view class="top-item top-2" wx:if="{{sortedRecipes[1]}}">
+        <view class="rank-badge">2</view>
+        <image class="top-image" src="{{sortedRecipes[1].image}}" mode="aspectFill" />
+        <text class="top-name">{{sortedRecipes[1].title}}</text>
+        <text class="top-count">🔥 {{formatCount(sortedRecipes[1].likes)}}</text>
+      </view>
+      <view class="top-item top-1" wx:if="{{sortedRecipes[0]}}">
+        <view class="rank-badge">1</view>
+        <image class="top-image" src="{{sortedRecipes[0].image}}" mode="aspectFill" />
+        <text class="top-name">{{sortedRecipes[0].title}}</text>
+        <text class="top-count">🔥 {{formatCount(sortedRecipes[0].likes)}}</text>
+      </view>
+      <view class="top-item top-3" wx:if="{{sortedRecipes[2]}}">
+        <view class="rank-badge">3</view>
+        <image class="top-image" src="{{sortedRecipes[2].image}}" mode="aspectFill" />
+        <text class="top-name">{{sortedRecipes[2].title}}</text>
+        <text class="top-count">🔥 {{formatCount(sortedRecipes[2].likes)}}</text>
+      </view>
+    </view>
+
+    <view class="ranking-list">
+      <view class="ranking-item" wx:for="{{sortedRecipes}}" wx:key="id" wx:if="{{index >= 3}}" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="rank-number">{{index + 1}}</view>
+        <image class="item-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="item-info">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-author">by {{item.author}}</text>
+        </view>
+        <text class="item-count">🔥 {{formatCount(item.likes)}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="author-ranking" wx:if="{{activeTab === 'author'}}">
+    <view class="author-list">
+      <view class="author-item" wx:for="{{sortedAuthors}}" wx:key="id">
+        <view class="author-rank {{index < 3 ? 'top' : ''}}">{{index + 1}}</view>
+        <image class="author-avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <view class="author-info">
+          <text class="author-name">{{item.name}}</text>
+          <text class="author-stats">{{item.recipes}}个菜谱 · {{formatCount(item.followers)}}粉丝</text>
+        </view>
+        <button class="follow-btn" size="mini">关注</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="filter-section">
+    <view class="filter-row">
+      <text class="filter-label">菜系筛选：</text>
+      <scroll-view class="filter-scroll" scroll-x="true" show-scrollbar="false">
+        <view class="filter-tags">
+          <text class="filter-tag {{selectedCuisine === 'all' ? 'active' : ''}}" bindtap="selectCuisine" data-cuisine="all">全部</text>
+          <text class="filter-tag {{selectedCuisine === '家常菜' ? 'active' : ''}}" bindtap="selectCuisine" data-cuisine="家常菜">家常菜</text>
+          <text class="filter-tag {{selectedCuisine === '川菜' ? 'active' : ''}}" bindtap="selectCuisine" data-cuisine="川菜">川菜</text>
+          <text class="filter-tag {{selectedCuisine === '湘菜' ? 'active' : ''}}" bindtap="selectCuisine" data-cuisine="湘菜">湘菜</text>
+          <text class="filter-tag {{selectedCuisine === '粤菜' ? 'active' : ''}}" bindtap="selectCuisine" data-cuisine="粤菜">粤菜</text>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="filter-row">
+      <text class="filter-label">口味筛选：</text>
+      <view class="filter-tags">
+        <text class="filter-tag {{selectedTaste === 'all' ? 'active' : ''}}" bindtap="selectTaste" data-taste="all">全部</text>
+        <text class="filter-tag {{selectedTaste === '辣' ? 'active' : ''}}" bindtap="selectTaste" data-taste="辣">辣味</text>
+        <text class="filter-tag {{selectedTaste === '甜' ? 'active' : ''}}" bindtap="selectTaste" data-taste="甜">甜味</text>
+        <text class="filter-tag {{selectedTaste === '清淡' ? 'active' : ''}}" bindtap="selectTaste" data-taste="清淡">清淡</text>
+      </view>
+    </view>
+    <view class="filter-row">
+      <text class="filter-label">难度筛选：</text>
+      <view class="filter-tags">
+        <text class="filter-tag {{selectedDifficulty === 'all' ? 'active' : ''}}" bindtap="selectDifficulty" data-difficulty="all">全部</text>
+        <text class="filter-tag {{selectedDifficulty === '简单' ? 'active' : ''}}" bindtap="selectDifficulty" data-difficulty="简单">简单</text>
+        <text class="filter-tag {{selectedDifficulty === '中等' ? 'active' : ''}}" bindtap="selectDifficulty" data-difficulty="中等">中等</text>
+        <text class="filter-tag {{selectedDifficulty === '困难' ? 'active' : ''}}" bindtap="selectDifficulty" data-difficulty="困难">困难</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="recipe-grid">
+    <view class="recipe-item" wx:for="{{filteredRecipes}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="recipe-image" src="{{item.image}}" mode="aspectFill" />
+      <view class="recipe-info">
+        <text class="recipe-title">{{item.title}}</text>
+        <view class="recipe-tags">
+          <text class="recipe-tag">{{item.category}}</text>
+          <text class="recipe-tag">{{item.difficulty}}</text>
+        </view>
+        <view class="recipe-stats">
+          <text>❤️ {{formatCount(item.likes)}}</text>
+          <text>⏱️ {{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{filteredRecipes.length === 0}}">
+    <text class="empty-text">暂无符合条件的菜谱</text>
+  </view>
+</view>

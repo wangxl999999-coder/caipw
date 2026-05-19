@@ -1,0 +1,134 @@
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  text-align: center;
+  padding: 30rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.age-tabs {
+  margin-bottom: 30rpx;
+}
+
+.tab-list {
+  display: flex;
+  gap: 15rpx;
+  padding: 0 10rpx;
+}
+
+.tab {
+  padding: 15rpx 25rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #666;
+  white-space: nowrap;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  color: #fff;
+}
+
+.feeding-guide {
+  background: #fff0e8;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.guide-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #ff6b35;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.guide-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.guide-item {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.food-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.food-item {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.food-image {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
+.food-info {
+  flex: 1;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.food-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.food-meta {
+  display: flex;
+  gap: 10rpx;
+}
+
+.age-tag {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 6rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+}
+
+.difficulty-tag {
+  background: #e8f5e9;
+  color: #388e3c;
+  padding: 6rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+}
+
+.food-time {
+  font-size: 24rpx;
+  color: #999;
+}

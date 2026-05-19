@@ -1,0 +1,137 @@
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 140rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #fff;
+}
+
+.clear-btn {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.add-section {
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.add-input {
+  flex: 1;
+  padding: 20rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.add-btn {
+  background: #ff6b35;
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx 30rpx;
+  font-size: 26rpx;
+  border: none;
+}
+
+.list-section {
+  background: #fff;
+  margin: 0 20rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item.checked .item-name {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.checkbox {
+  margin-right: 15rpx;
+}
+
+.item-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.delete-btn {
+  color: #ccc;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  display: block;
+  font-size: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  display: block;
+  font-size: 30rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.empty-desc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.stats {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.export-btn {
+  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  color: #fff;
+  border-radius: 30rpx;
+  padding: 15rpx 40rpx;
+  font-size: 26rpx;
+  border: none;
+}

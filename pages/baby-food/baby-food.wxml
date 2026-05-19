@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header">
+    <text class="title">宝宝辅食</text>
+    <text class="subtitle">科学喂养，健康成长</text>
+  </view>
+
+  <view class="age-tabs">
+    <scroll-view scroll-x="true" show-scrollbar="false">
+      <view class="tab-list">
+        <view class="tab {{selectedAge === 'all' ? 'active' : ''}}" bindtap="selectAge" data-age="all">全部</view>
+        <view class="tab {{selectedAge === '6-8个月' ? 'active' : ''}}" bindtap="selectAge" data-age="6-8个月">6-8个月</view>
+        <view class="tab {{selectedAge === '8-10个月' ? 'active' : ''}}" bindtap="selectAge" data-age="8-10个月">8-10个月</view>
+        <view class="tab {{selectedAge === '10-12个月' ? 'active' : ''}}" bindtap="selectAge" data-age="10-12个月">10-12个月</view>
+        <view class="tab {{selectedAge === '12-18个月' ? 'active' : ''}}" bindtap="selectAge" data-age="12-18个月">12-18个月</view>
+        <view class="tab {{selectedAge === '18-24个月' ? 'active' : ''}}" bindtap="selectAge" data-age="18-24个月">18-24个月</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="feeding-guide" wx:if="{{selectedAge !== 'all'}}">
+    <view class="guide-title">📋 {{selectedAge}}喂养建议</view>
+    <view class="guide-content">
+      <text class="guide-item">• 每天奶量保持在600-800ml</text>
+      <text class="guide-item">• 辅食添加次数：{{selectedAge === '6-8个月' ? '2次/天' : '3次/天'}}</text>
+      <text class="guide-item">• 食物性状：{{selectedAge === '6-8个月' ? '泥糊状' : selectedAge === '12-18个月' ? '碎末状' : '小颗粒状'}}</text>
+    </view>
+  </view>
+
+  <view class="food-list">
+    <view class="food-item" wx:for="{{filteredFood}}" wx:key="id">
+      <image class="food-image" src="{{item.image}}" mode="aspectFill" />
+      <view class="food-info">
+        <text class="food-title">{{item.title}}</text>
+        <view class="food-meta">
+          <text class="age-tag">{{item.age}}</text>
+          <text class="difficulty-tag">{{item.difficulty}}</text>
+        </view>
+        <text class="food-time">⏱️ {{item.time}}</text>
+      </view>
+    </view>
+  </view>
+</view>

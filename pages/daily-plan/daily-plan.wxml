@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="date-header">
+    <text class="date-title">今日食谱</text>
+    <text class="date-subtitle">{{todayDate}}</text>
+  </view>
+
+  <view class="meal-section">
+    <view class="meal-header">
+      <view class="meal-icon">🌅</view>
+      <text class="meal-title">早餐</text>
+    </view>
+    <view class="meal-recipes">
+      <view class="meal-recipe" wx:for="{{dailyPlan.breakfast}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="recipe-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="recipe-info">
+          <text class="recipe-title">{{item.title}}</text>
+          <text class="recipe-time">⏱️ {{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="meal-section">
+    <view class="meal-header">
+      <view class="meal-icon">☀️</view>
+      <text class="meal-title">午餐</text>
+    </view>
+    <view class="meal-recipes">
+      <view class="meal-recipe" wx:for="{{dailyPlan.lunch}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="recipe-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="recipe-info">
+          <text class="recipe-title">{{item.title}}</text>
+          <text class="recipe-time">⏱️ {{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="meal-section">
+    <view class="meal-header">
+      <view class="meal-icon">🌙</view>
+      <text class="meal-title">晚餐</text>
+    </view>
+    <view class="meal-recipes">
+      <view class="meal-recipe" wx:for="{{dailyPlan.dinner}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="recipe-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="recipe-info">
+          <text class="recipe-title">{{item.title}}</text>
+          <text class="recipe-time">⏱️ {{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="nutrition-summary">
+    <text class="nutrition-title">今日营养概览</text>
+    <view class="nutrition-grid">
+      <view class="nutrition-item">
+        <text class="nutrition-value">1800</text>
+        <text class="nutrition-label">卡路里 (kcal)</text>
+      </view>
+      <view class="nutrition-item">
+        <text class="nutrition-value">85</text>
+        <text class="nutrition-label">蛋白质 (g)</text>
+      </view>
+      <view class="nutrition-item">
+        <text class="nutrition-value">60</text>
+        <text class="nutrition-label">脂肪 (g)</text>
+      </view>
+      <view class="nutrition-item">
+        <text class="nutrition-value">220</text>
+        <text class="nutrition-label">碳水 (g)</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="save-plan-btn">保存今日食谱</button>
+  <view class="bottom-spacing"></view>
+</view>

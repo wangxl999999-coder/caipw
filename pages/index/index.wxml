@@ -1,0 +1,121 @@
+<view class="container">
+  <view class="search-bar">
+    <view class="search-input-wrapper" bindtap="goToSearch">
+      <icon class="search-icon" type="search" size="16"></icon>
+      <input class="search-input" placeholder="搜索食材或菜谱名称" disabled />
+    </view>
+  </view>
+
+  <scroll-view class="category-scroll" scroll-x="true" show-scrollbar="false">
+    <view class="category-list">
+      <view class="category-item" wx:for="{{categories}}" wx:key="id" bindtap="goToCategory" data-id="{{item.id}}" data-name="{{item.name}}">
+        <view class="category-icon">{{item.icon}}</view>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <swiper class="banner-swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill" />
+      <view class="banner-title">{{item.title}}</view>
+    </swiper-item>
+  </swiper>
+
+  <view class="section">
+    <view class="section-title">
+      <text>热门菜谱</text>
+      <text class="more" bindtap="goToRanking">更多 ></text>
+    </view>
+    <scroll-view class="recipe-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="recipe-list">
+        <view class="recipe-card" wx:for="{{hotRecipes}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+          <image class="recipe-image" src="{{item.image}}" mode="aspectFill" />
+          <view class="recipe-info">
+            <text class="recipe-title">{{item.title}}</text>
+            <view class="recipe-meta">
+              <text class="meta-item">⏱️ {{item.time}}</text>
+              <text class="meta-item">🔥 {{item.difficulty}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">
+      <text>今日推荐</text>
+      <text class="more">更多 ></text>
+    </view>
+    <view class="today-grid">
+      <view class="today-item" wx:for="{{todayRecommend}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="today-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="today-overlay">
+          <text class="today-title">{{item.title}}</text>
+          <text class="today-author">by {{item.author}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">
+      <text>时令菜品</text>
+      <text class="more">更多 ></text>
+    </view>
+    <view class="season-list">
+      <view class="season-item" wx:for="{{seasonRecipes}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="season-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="season-content">
+          <text class="season-title">{{item.title}}</text>
+          <view class="season-tags">
+            <text class="tag">{{item.category}}</text>
+            <text class="tag">{{item.taste}}</text>
+          </view>
+          <view class="season-stats">
+            <text>❤️ {{formatCount(item.likes)}}</text>
+            <text>⭐ {{formatCount(item.favorites)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">
+      <text>猜你喜欢</text>
+      <text class="more">换一批</text>
+    </view>
+    <view class="guess-grid">
+      <view class="guess-item" wx:for="{{guessRecipes}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="guess-image" src="{{item.image}}" mode="aspectFill" />
+        <text class="guess-title">{{item.title}}</text>
+        <view class="guess-meta">
+          <text class="guess-author">{{item.author}}</text>
+          <text class="guess-views">{{formatCount(item.views)}}浏览</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">
+      <text>新手入门</text>
+      <text class="more">更多 ></text>
+    </view>
+    <view class="beginner-list">
+      <view class="beginner-item" wx:for="{{beginnerRecipes}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="beginner-number">{{index + 1}}</view>
+        <view class="beginner-content">
+          <text class="beginner-title">{{item.title}}</text>
+          <view class="beginner-tags">
+            <text class="tag">简单</text>
+            <text class="tag">{{item.time}}</text>
+          </view>
+        </view>
+        <image class="beginner-image" src="{{item.image}}" mode="aspectFill" />
+      </view>
+    </view>
+  </view>
+</view>
