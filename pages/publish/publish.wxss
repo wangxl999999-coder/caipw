@@ -1,24 +1,24 @@
-.container {
+.publish-container {
   min-height: 100vh;
   background: #f5f5f5;
   padding: 20rpx;
 }
 
-.form-section {
+.publish-section {
   background: #fff;
   border-radius: 16rpx;
   padding: 30rpx;
   margin-bottom: 20rpx;
 }
 
-.section-title {
+.publish-section-title {
   font-size: 30rpx;
   font-weight: 500;
   color: #333;
   margin-bottom: 25rpx;
 }
 
-.cover-upload {
+.publish-cover-upload {
   width: 100%;
   height: 400rpx;
   border: 2rpx dashed #ddd;
@@ -30,12 +30,12 @@
   overflow: hidden;
 }
 
-.cover-image {
+.publish-cover-image {
   width: 100%;
   height: 100%;
 }
 
-.cover-placeholder {
+.publish-cover-placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,35 +43,36 @@
   font-size: 26rpx;
 }
 
-.cover-placeholder icon {
+.publish-cover-placeholder icon {
   margin-bottom: 15rpx;
 }
 
-.form-item {
+.publish-form-item {
   margin-bottom: 25rpx;
 }
 
-.form-item:last-child {
+.publish-form-item:last-child {
   margin-bottom: 0;
 }
 
-.label {
+.publish-label {
   font-size: 26rpx;
   color: #666;
   display: block;
   margin-bottom: 10rpx;
 }
 
-.input {
+.publish-input {
   width: 100%;
   padding: 20rpx;
   background: #f5f5f5;
   border-radius: 8rpx;
   font-size: 28rpx;
   box-sizing: border-box;
+  border: none;
 }
 
-.picker {
+.publish-picker {
   padding: 20rpx;
   background: #f5f5f5;
   border-radius: 8rpx;
@@ -79,13 +80,13 @@
   color: #333;
 }
 
-.tag-group {
+.publish-tag-group {
   display: flex;
   gap: 15rpx;
   flex-wrap: wrap;
 }
 
-.tag {
+.publish-tag {
   padding: 12rpx 25rpx;
   background: #f5f5f5;
   border-radius: 30rpx;
@@ -93,44 +94,46 @@
   color: #666;
 }
 
-.tag.active {
+.publish-tag.active {
   background: #fff0e8;
   color: #ff6b35;
 }
 
-.ingredient-list {
+.publish-ingredient-list {
   margin-bottom: 20rpx;
 }
 
-.ingredient-item {
+.publish-ingredient-item {
   display: flex;
   align-items: center;
   gap: 15rpx;
   margin-bottom: 15rpx;
 }
 
-.ingredient-name {
+.publish-ingredient-name {
   flex: 2;
   padding: 15rpx;
   background: #f5f5f5;
   border-radius: 8rpx;
   font-size: 26rpx;
+  border: none;
 }
 
-.ingredient-amount {
+.publish-ingredient-amount {
   flex: 1;
   padding: 15rpx;
   background: #f5f5f5;
   border-radius: 8rpx;
   font-size: 26rpx;
+  border: none;
 }
 
-.delete-icon {
+.publish-delete-icon {
   color: #ccc;
   flex-shrink: 0;
 }
 
-.add-btn {
+.publish-add-btn {
   width: 100%;
   background: #fff0e8;
   color: #ff6b35;
@@ -140,31 +143,31 @@
   border: none;
 }
 
-.step-list {
+.publish-step-list {
   margin-bottom: 20rpx;
 }
 
-.step-item {
+.publish-step-item {
   margin-bottom: 25rpx;
   padding-bottom: 25rpx;
   border-bottom: 1rpx solid #f5f5f5;
   position: relative;
 }
 
-.step-item:last-child {
+.publish-step-item:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
 }
 
-.step-number {
+.publish-step-number {
   font-size: 26rpx;
   color: #ff6b35;
   font-weight: 500;
   margin-bottom: 15rpx;
 }
 
-.step-image-upload {
+.publish-step-image-upload {
   width: 200rpx;
   height: 200rpx;
   border: 2rpx dashed #ddd;
@@ -176,16 +179,16 @@
   overflow: hidden;
 }
 
-.step-image {
+.publish-step-image {
   width: 100%;
   height: 100%;
 }
 
-.step-image-placeholder {
+.publish-step-image-placeholder {
   color: #ccc;
 }
 
-.step-desc {
+.publish-step-desc {
   width: 100%;
   min-height: 150rpx;
   padding: 15rpx;
@@ -193,16 +196,17 @@
   border-radius: 8rpx;
   font-size: 26rpx;
   box-sizing: border-box;
+  border: none;
 }
 
-.delete-step {
+.publish-delete-step {
   position: absolute;
   top: 0;
   right: 0;
   color: #ccc;
 }
 
-.textarea {
+.publish-textarea {
   width: 100%;
   min-height: 200rpx;
   padding: 20rpx;
@@ -210,9 +214,10 @@
   border-radius: 8rpx;
   font-size: 28rpx;
   box-sizing: border-box;
+  border: none;
 }
 
-.publish-btn {
+.publish-submit-btn {
   width: 100%;
   background: linear-gradient(135deg, #ff6b35, #ff8f5a);
   color: #fff;
@@ -223,6 +228,6 @@
   margin: 20rpx 0;
 }
 
-.bottom-spacing {
+.publish-bottom-spacing {
   height: 40rpx;
 }

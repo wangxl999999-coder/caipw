@@ -34,12 +34,6 @@
         "selectedIconPath": "images/home-active.png"
       },
       {
-        "pagePath": "pages/category/category",
-        "text": "分类",
-        "iconPath": "images/category.png",
-        "selectedIconPath": "images/category-active.png"
-      },
-      {
         "pagePath": "pages/daily-plan/daily-plan",
         "text": "食谱",
         "iconPath": "images/plan.png",
